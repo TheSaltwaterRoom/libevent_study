@@ -38,7 +38,8 @@ int main(int argc, char** argv){
 	//添加kill信号
 	//非持久事件，只进入一次 event_self_cbarg() 传递当前的event
 	event *ksig =  event_new(base,SIGTERM,EV_SIGNAL,Kill,event_self_cbarg());
-	if(event_add(csig,0) != 0){
+	if (!ksig)
+	{
 		cerr << "SIGTERM event_new failed!" << endl;
 		return -1;
 	}

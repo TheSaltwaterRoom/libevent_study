@@ -43,7 +43,7 @@ int main()
 		listen_cb,//接收到连接的回调函数
 		base,//回调函数获取的参数arg
 		LEV_OPT_CLOSE_ON_FREE | LEV_OPT_REUSEABLE,//evconnlistener关闭时同时关闭socket，地址重用
-		10,
+		10,//listen backlog
 		(sockaddr*)&sin,
 		sizeof(sin)
 		);
