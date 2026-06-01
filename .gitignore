@@ -49,5 +49,9 @@ src/test_buffer_client/test_buffer_client
 src/test_event_server/test_event_server
 src/test_signal_loop/test_signal_loop
 
+# Local study/example directories
+src/test_buffer_filter/
+src/test_buffer_filter_zlib/
+
 # Per-user project settings
 *.vcxproj.user
