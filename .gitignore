@@ -52,6 +52,9 @@ src/test_signal_loop/test_signal_loop
 # Local study/example directories
 src/test_buffer_filter/
 src/test_buffer_filter_zlib/
+src/test_http_client/NMediaFile/
+src/test_http_client/index.html
+src/test_http_sever/firstlibevent
 
 # Per-user project settings
 *.vcxproj.user
