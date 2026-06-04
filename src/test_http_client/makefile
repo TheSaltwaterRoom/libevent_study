@@ -1,6 +1,6 @@
-testsever:test_sever.cpp
+test_client:test_client.cpp
 	g++ $^ -o $@ -levent
 	./$@
 clean:
-	rm -rf testsever
+	rm -rf test_client
 	rm -rf *.o

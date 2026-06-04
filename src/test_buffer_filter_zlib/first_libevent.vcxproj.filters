@@ -15,13 +15,14 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test_sever.cpp">
+    <ClCompile Include="test_buffer_filter_zlib.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="index.html">
+    <ClCompile Include="zlib_server.cpp">
       <Filter>源文件</Filter>
-    </None>
+    </ClCompile>
+    <ClCompile Include="zlib_client.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

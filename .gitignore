@@ -48,13 +48,19 @@ src/test_buffer/test_buffer
 src/test_buffer_client/test_buffer_client
 src/test_event_server/test_event_server
 src/test_signal_loop/test_signal_loop
+src/test_http_client/test_client
+src/test_http_server/test_server
+src/test_server/test_server
 
 # Local study/example directories
-src/test_buffer_filter/
-src/test_buffer_filter_zlib/
+src/test_buffer_filter/test_buffer_filter
+src/test_buffer_filter_zlib/test_buffer_filter_zlib
+src/test_buffer_filter_zlib/out/
+src/test_buffer_filter_zlib/test_buf.*/
+src/test_buffer_filter_zlib/001.bmp
 src/test_http_client/NMediaFile/
 src/test_http_client/index.html
-src/test_http_sever/firstlibevent
+src/test_http_server/firstlibevent
 
 # Per-user project settings
 *.vcxproj.user

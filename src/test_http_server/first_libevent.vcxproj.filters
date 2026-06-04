@@ -15,8 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test_sever.cpp">
+    <ClCompile Include="test_server.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="index.html">
+      <Filter>源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>
