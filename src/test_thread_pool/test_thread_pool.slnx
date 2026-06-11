@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="first_libevent.vcxproj" Id="bfaa69e3-d08d-4ff7-ad05-96340bc2b57f" />
+</Solution>

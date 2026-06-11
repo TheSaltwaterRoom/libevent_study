@@ -61,6 +61,7 @@ src/test_buffer_filter_zlib/001.bmp
 src/test_http_client/NMediaFile/
 src/test_http_client/index.html
 src/test_http_server/firstlibevent
+src/test_thread_pool/test_thread_pool
 
 # Per-user project settings
 *.vcxproj.user
