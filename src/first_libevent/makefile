@@ -1,6 +1,31 @@
-firstlibevent:first_libevent.cpp
-	g++ $^ -o $@ -levent
-	./$@
+CXX ?= g++
+
+TARGET := firstlibevent
+SOURCES := first_libevent.cpp
+OBJECTS := $(SOURCES:.cpp=.o)
+DEPFILES := $(OBJECTS:.o=.d)
+
+CPPFLAGS ?=
+CXXFLAGS ?= -std=c++17 -Wall -Wextra -O2
+LDFLAGS ?=
+LDLIBS ?= -levent
+
+.DEFAULT_GOAL := all
+
+all: $(TARGET)
+
+$(TARGET): $(OBJECTS)
+	$(CXX) $(LDFLAGS) $^ $(LDLIBS) -o $@
+
+%.o: %.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -MMD -MP -c $< -o $@
+
+run: $(TARGET)
+	./$(TARGET)
+
 clean:
-	rm -rf firstlibevent
-	rm -rf *.o
+	rm -f $(TARGET) $(OBJECTS) $(DEPFILES)
+
+-include $(DEPFILES)
+
+.PHONY: all run clean

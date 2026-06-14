@@ -1,14 +1,27 @@
 CXX ?= g++
 
-TARGET := test_signal_loop
-SOURCES := test_signal_loop.cpp
+TARGET := ev_ftp_server
+
+SOURCES := \
+	ev_ftp_server.cpp \
+	XFtpFactory.cpp \
+	XFtpLIST.cpp \
+	XFtpPORT.cpp \
+	XFtpRETR.cpp \
+	XFtpServerCMD.cpp \
+	XFtpSTOR.cpp \
+	XFtpTask.cpp \
+	XFtpUSER.cpp \
+	XThread.cpp \
+	XThreadPool.cpp
+
 OBJECTS := $(SOURCES:.cpp=.o)
 DEPFILES := $(OBJECTS:.o=.d)
 
 CPPFLAGS ?=
 CXXFLAGS ?= -std=c++17 -Wall -Wextra -O2
 LDFLAGS ?=
-LDLIBS ?= -levent
+LDLIBS ?= -levent -pthread
 
 .DEFAULT_GOAL := all
 

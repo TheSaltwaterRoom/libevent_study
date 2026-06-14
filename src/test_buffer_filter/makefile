@@ -1,10 +1,31 @@
-test_buffer_filter: test_buffer_filter.cpp
-	g++ $^ -o $@ -levent
+CXX ?= g++
 
-run: test_buffer_filter
-	./test_buffer_filter
+TARGET := test_buffer_filter
+SOURCES := test_buffer_filter.cpp
+OBJECTS := $(SOURCES:.cpp=.o)
+DEPFILES := $(OBJECTS:.o=.d)
+
+CPPFLAGS ?=
+CXXFLAGS ?= -std=c++17 -Wall -Wextra -O2
+LDFLAGS ?=
+LDLIBS ?= -levent
+
+.DEFAULT_GOAL := all
+
+all: $(TARGET)
+
+$(TARGET): $(OBJECTS)
+	$(CXX) $(LDFLAGS) $^ $(LDLIBS) -o $@
+
+%.o: %.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -MMD -MP -c $< -o $@
+
+run: $(TARGET)
+	./$(TARGET)
 
 clean:
-	rm -f test_buffer_filter
+	rm -f $(TARGET) $(OBJECTS) $(DEPFILES)
 
-.PHONY: run clean
+-include $(DEPFILES)
+
+.PHONY: all run clean

@@ -1,6 +1,31 @@
-test_server:test_server.cpp
-	g++ $^ -o $@ -levent
-	./$@
+CXX ?= g++
+
+TARGET := test_server
+SOURCES := test_server.cpp
+OBJECTS := $(SOURCES:.cpp=.o)
+DEPFILES := $(OBJECTS:.o=.d)
+
+CPPFLAGS ?=
+CXXFLAGS ?= -std=c++17 -Wall -Wextra -O2
+LDFLAGS ?=
+LDLIBS ?= -levent
+
+.DEFAULT_GOAL := all
+
+all: $(TARGET)
+
+$(TARGET): $(OBJECTS)
+	$(CXX) $(LDFLAGS) $^ $(LDLIBS) -o $@
+
+%.o: %.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -MMD -MP -c $< -o $@
+
+run: $(TARGET)
+	./$(TARGET)
+
 clean:
-	rm -rf test_server
-	rm -rf *.o
+	rm -f $(TARGET) $(OBJECTS) $(DEPFILES)
+
+-include $(DEPFILES)
+
+.PHONY: all run clean
